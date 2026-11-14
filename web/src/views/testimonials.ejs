@@ -1,0 +1,149 @@
+<%- include('partials/head', { title, description }) %>
+<%- include('partials/header', { activePage }) %>
+
+<%
+const testimonials = [
+  {
+    id: 1,
+    name: "John Smith",
+    role: "Homeowner",
+    image: "/placeholder.svg",
+    quote: "Vertex Construction Group transformed our vision into reality. Their attention to detail and commitment to quality exceeded our expectations. The team was professional, responsive, and a pleasure to work with throughout the entire process.",
+    rating: 5,
+    project: "Custom Home Build",
+  },
+  {
+    id: 2,
+    name: "Sarah Johnson",
+    role: "Business Owner",
+    image: "/placeholder.svg",
+    quote: "Working with Vertex on our commercial project was a seamless experience. They delivered on time and within budget while maintaining exceptional quality. Their team's expertise and communication made the entire process stress-free.",
+    rating: 5,
+    project: "Office Renovation",
+  },
+  {
+    id: 3,
+    name: "Michael Brown",
+    role: "Property Developer",
+    image: "/placeholder.svg",
+    quote: "As a developer, I value reliability and expertise. Vertex Construction Group has consistently demonstrated both across multiple projects we've collaborated on. Their ability to solve complex challenges and deliver quality results is unmatched.",
+    rating: 5,
+    project: "Multi-Unit Development",
+  },
+  {
+    id: 4,
+    name: "Emily Davis",
+    role: "Restaurant Owner",
+    image: "/placeholder.svg",
+    quote: "The renovation of our restaurant was completed with minimal disruption to our business. Vertex understood our needs and delivered a beautiful space that has received countless compliments from our customers.",
+    rating: 5,
+    project: "Restaurant Renovation",
+  },
+  {
+    id: 5,
+    name: "Robert Wilson",
+    role: "School Principal",
+    image: "/placeholder.svg",
+    quote: "Our school addition project had specific requirements and a tight timeline. Vertex Construction Group not only met but exceeded our expectations, delivering a safe, functional, and aesthetically pleasing space for our students.",
+    rating: 5,
+    project: "Educational Facility",
+  },
+  {
+    id: 6,
+    name: "Jennifer Martinez",
+    role: "Healthcare Administrator",
+    image: "/placeholder.svg",
+    quote: "The construction of our medical facility required specialized knowledge and attention to detail. Vertex demonstrated exceptional expertise in healthcare construction, ensuring all regulatory requirements were met.",
+    rating: 4,
+    project: "Medical Center",
+  },
+  {
+    id: 7,
+    name: "David Thompson",
+    role: "Retail Store Owner",
+    image: "/placeholder.svg",
+    quote: "Our retail space renovation was completed on schedule, allowing us to open as planned. The quality of work and attention to our brand aesthetics was impressive. Vertex truly understood our vision.",
+    rating: 5,
+    project: "Retail Store Renovation",
+  },
+  {
+    id: 8,
+    name: "Lisa Anderson",
+    role: "Homeowner",
+    image: "/placeholder.svg",
+    quote: "The home addition project was a significant investment for our family. Vertex Construction Group guided us through every step, ensuring the new space integrated seamlessly with our existing home. We couldn't be happier with the results.",
+    rating: 5,
+    project: "Home Addition",
+  },
+];
+%>
+
+<div class="flex flex-col gap-20 pb-20">
+  <!-- 1. HERO -->
+  <section class="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1552960504-34e1e1be3f53?q=80&w=2070&auto=format&fit=crop"
+        alt="Happy clients"
+        class="w-full h-full object-cover"
+        style="filter: brightness(0.5);"
+      />
+      <div class="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center text-white">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+        Client Testimonials
+      </h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto">
+        Hear what our clients have to say about their experience working with Vertex Construction Group.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. GRID -->
+  <section class="py-8 md:py-12">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          What Our Clients Say
+        </h2>
+        <p class="text-muted-foreground text-lg">
+          Don't just take our word for it. Here's what our satisfied clients have to say about their experience working with us.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <% testimonials.forEach(t => { %>
+          <div class="bg-card rounded-lg border shadow-sm p-6 flex flex-col justify-between h-full">
+            <div>
+              <i data-lucide="quote" class="h-10 w-10 text-primary/20 mb-4"></i>
+
+              <!-- Star Rating -->
+              <div class="flex mb-4 text-yellow-500">
+                <% for (let i = 0; i < 5; i++) { %>
+                  <i data-lucide="star" class="h-5 w-5 <%= i < t.rating ? 'fill-yellow-500' : 'text-muted' %>"></i>
+                <% } %>
+              </div>
+
+              <p class="italic mb-6 text-muted-foreground">"<%= t.quote %>"</p>
+            </div>
+
+            <div class="flex items-center pt-4 border-t">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4 bg-muted shrink-0 flex items-center justify-center">
+                <i data-lucide="users" class="h-6 w-6 text-muted-foreground"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-foreground"><%= t.name %></h4>
+                <p class="text-sm text-muted-foreground"><%= t.role %></p>
+                <p class="text-xs text-primary mt-1 font-medium"><%= t.project %></p>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%- include('partials/footer') %>

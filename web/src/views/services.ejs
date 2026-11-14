@@ -1,0 +1,463 @@
+<%- include('partials/head', { title, description }) %>
+<%- include('partials/header', { activePage }) %>
+
+<div class="flex flex-col gap-20 pb-20">
+  <!-- 1. SERVICES HERO -->
+  <section class="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+        alt="Construction services"
+        class="w-full h-full object-cover"
+        style="filter: brightness(0.6);"
+      />
+      <div class="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center text-white">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+        Our Construction Services
+      </h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto">
+        Comprehensive construction solutions tailored to your specific needs and vision.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. TABBED SERVICES LIST -->
+  <section class="py-8 md:py-12">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Comprehensive Construction Services
+        </h2>
+        <p class="text-muted-foreground text-lg">
+          We offer a wide range of construction services to meet all your
+          building needs, from residential to commercial and industrial
+          projects.
+        </p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="w-full">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-auto mb-12 gap-2 bg-muted p-1 rounded-lg">
+          <button 
+            type="button" 
+            class="service-tab-trigger flex flex-col items-center gap-2 py-4 rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground"
+            data-tab="design">
+            <i data-lucide="ruler" class="h-5 w-5"></i>
+            <span>Design</span>
+          </button>
+
+          <button 
+            type="button" 
+            class="service-tab-trigger flex flex-col items-center gap-2 py-4 rounded-md text-sm font-medium transition-colors text-muted-foreground"
+            data-tab="residential">
+            <i data-lucide="home" class="h-5 w-5"></i>
+            <span>Residential</span>
+          </button>
+
+          <button 
+            type="button" 
+            class="service-tab-trigger flex flex-col items-center gap-2 py-4 rounded-md text-sm font-medium transition-colors text-muted-foreground"
+            data-tab="commercial">
+            <i data-lucide="building-2" class="h-5 w-5"></i>
+            <span>Commercial</span>
+          </button>
+
+          <button 
+            type="button" 
+            class="service-tab-trigger flex flex-col items-center gap-2 py-4 rounded-md text-sm font-medium transition-colors text-muted-foreground"
+            data-tab="industrial">
+            <i data-lucide="warehouse" class="h-5 w-5"></i>
+            <span>Industrial</span>
+          </button>
+
+          <button 
+            type="button" 
+            class="service-tab-trigger flex flex-col items-center gap-2 py-4 rounded-md text-sm font-medium transition-colors text-muted-foreground"
+            data-tab="renovation">
+            <i data-lucide="wrench" class="h-5 w-5"></i>
+            <span>Renovation</span>
+          </button>
+
+          <button 
+            type="button" 
+            class="service-tab-trigger flex flex-col items-center gap-2 py-4 rounded-md text-sm font-medium transition-colors text-muted-foreground"
+            data-tab="management">
+            <i data-lucide="hard-hat" class="h-5 w-5"></i>
+            <span>Management</span>
+          </button>
+        </div>
+
+        <!-- Tab 1: Design -->
+        <div class="service-tab-content grid md:grid-cols-2 gap-8 items-center" data-tab-content="design">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <i data-lucide="ruler" class="h-6 w-6 text-primary"></i>
+              </div>
+              <h3 class="text-2xl font-bold">Design & Planning</h3>
+            </div>
+            <p class="text-muted-foreground mb-6 leading-relaxed">
+              Our design and planning services help bring your vision to life. We work closely with you to develop detailed plans that meet your aesthetic preferences, functional requirements, and budget constraints.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Architectural design services</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Space planning and layout</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Permit acquisition assistance</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Building code compliance</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>3D modeling and visualization</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Sustainable design solutions</span></div>
+            </div>
+          </div>
+          <div class="relative rounded-lg overflow-hidden aspect-[4/3] bg-muted shadow-md">
+            <img src="/services/design.jpg" alt="Design & Planning" class="object-cover w-full h-full">
+          </div>
+        </div>
+
+        <!-- Tab 2: Residential -->
+        <div class="service-tab-content hidden grid md:grid-cols-2 gap-8 items-center" data-tab-content="residential">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <i data-lucide="home" class="h-6 w-6 text-primary"></i>
+              </div>
+              <h3 class="text-2xl font-bold">Residential Construction</h3>
+            </div>
+            <p class="text-muted-foreground mb-6 leading-relaxed">
+              We build custom homes that reflect your unique style and meet your specific needs. From luxury residences to multi-family dwellings, our team handles every aspect of residential construction with precision and care.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Custom home building</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Home renovations and additions</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Multi-family residential projects</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Luxury home construction</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Energy-efficient home design</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Interior and exterior remodeling</span></div>
+            </div>
+          </div>
+          <div class="relative rounded-lg overflow-hidden aspect-[4/3] bg-muted shadow-md">
+            <img src="/services/resi.jpeg" alt="Residential Construction" class="object-cover w-full h-full">
+          </div>
+        </div>
+
+        <!-- Tab 3: Commercial -->
+        <div class="service-tab-content hidden grid md:grid-cols-2 gap-8 items-center" data-tab-content="commercial">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <i data-lucide="building-2" class="h-6 w-6 text-primary"></i>
+              </div>
+              <h3 class="text-2xl font-bold">Commercial Construction</h3>
+            </div>
+            <p class="text-muted-foreground mb-6 leading-relaxed">
+              Our commercial construction services deliver functional, attractive spaces for businesses of all sizes. We understand the unique requirements of commercial projects and work to minimize disruption while maximizing value.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Office buildings and complexes</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Retail spaces and shopping centers</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Restaurants and hospitality venues</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Medical facilities and clinics</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Educational institutions</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Mixed-use developments</span></div>
+            </div>
+          </div>
+          <div class="relative rounded-lg overflow-hidden aspect-[4/3] bg-muted shadow-md">
+            <img src="/services/com.jpg" alt="Commercial Construction" class="object-cover w-full h-full">
+          </div>
+        </div>
+
+        <!-- Tab 4: Industrial -->
+        <div class="service-tab-content hidden grid md:grid-cols-2 gap-8 items-center" data-tab-content="industrial">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <i data-lucide="warehouse" class="h-6 w-6 text-primary"></i>
+              </div>
+              <h3 class="text-2xl font-bold">Industrial Construction</h3>
+            </div>
+            <p class="text-muted-foreground mb-6 leading-relaxed">
+              We specialize in constructing industrial facilities that prioritize functionality, efficiency, and safety. Our team has the expertise to handle the complex requirements of industrial construction projects.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Manufacturing facilities</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Warehouses and distribution centers</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Processing plants</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Industrial renovations</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Equipment foundations</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Specialized industrial structures</span></div>
+            </div>
+          </div>
+          <div class="relative rounded-lg overflow-hidden aspect-[4/3] bg-muted shadow-md">
+            <img src="/services/indus.jpg" alt="Industrial Construction" class="object-cover w-full h-full">
+          </div>
+        </div>
+
+        <!-- Tab 5: Renovation -->
+        <div class="service-tab-content hidden grid md:grid-cols-2 gap-8 items-center" data-tab-content="renovation">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <i data-lucide="wrench" class="h-6 w-6 text-primary"></i>
+              </div>
+              <h3 class="text-2xl font-bold">Renovation & Remodeling</h3>
+            </div>
+            <p class="text-muted-foreground mb-6 leading-relaxed">
+              Transform your existing space with our comprehensive renovation and remodeling services. We breathe new life into outdated structures while preserving their character and enhancing their functionality.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Complete home renovations</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Kitchen and bathroom remodeling</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Commercial space renovations</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Historic building restoration</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Basement and attic conversions</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Facade improvements</span></div>
+            </div>
+          </div>
+          <div class="relative rounded-lg overflow-hidden aspect-[4/3] bg-muted shadow-md">
+            <img src="/services/reno.jpg" alt="Renovation & Remodeling" class="object-cover w-full h-full">
+          </div>
+        </div>
+
+        <!-- Tab 6: Management -->
+        <div class="service-tab-content hidden grid md:grid-cols-2 gap-8 items-center" data-tab-content="management">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <i data-lucide="hard-hat" class="h-6 w-6 text-primary"></i>
+              </div>
+              <h3 class="text-2xl font-bold">Project Management</h3>
+            </div>
+            <p class="text-muted-foreground mb-6 leading-relaxed">
+              Our project management services ensure your construction project runs smoothly from concept to completion. We coordinate all aspects of the project, keeping it on schedule and within budget.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Comprehensive project planning</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Budget development and management</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Schedule creation and monitoring</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Quality control and assurance</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Subcontractor coordination</span></div>
+              <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary shrink-0"></div><span>Regular progress reporting</span></div>
+            </div>
+          </div>
+          <div class="relative rounded-lg overflow-hidden aspect-[4/3] bg-muted shadow-md">
+            <img src="/services/pro.jpg" alt="Project Management" class="object-cover w-full h-full">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CONSTRUCTION PROCESS -->
+  <section class="py-16 md:py-24 bg-muted/30">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Our Construction Process
+        </h2>
+        <p class="text-muted-foreground text-lg">
+          We follow a structured approach to ensure every project is completed
+          efficiently, on time, and to the highest standards.
+        </p>
+      </div>
+
+      <div class="relative max-w-5xl mx-auto">
+        <!-- Vertical guide line -->
+        <div class="absolute left-[27px] md:left-1/2 transform md:-translate-x-1/2 top-0 h-full w-1 bg-primary/20 z-0"></div>
+
+        <div class="space-y-12 md:space-y-0">
+          <!-- Step 1 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0 md:flex-row">
+            <div class="flex-1 md:w-1/2 md:px-8">
+              <div class="bg-card rounded-lg p-6 shadow-md border md:mr-8">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <i data-lucide="message-square" class="h-5 w-5 text-primary"></i>
+                  </div>
+                  <h3 class="text-xl font-bold">Initial Consultation</h3>
+                </div>
+                <p class="text-muted-foreground text-sm">
+                  We begin with a thorough consultation to understand your vision, requirements, and budget constraints.
+                </p>
+              </div>
+            </div>
+            <div class="md:w-0 flex justify-center z-10 hidden md:flex">
+              <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">1</div>
+            </div>
+            <div class="flex-1 md:w-1/2 hidden md:block"></div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0 md:flex-row-reverse mt-6">
+            <div class="flex-1 md:w-1/2 md:px-8">
+              <div class="bg-card rounded-lg p-6 shadow-md border md:ml-8">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <i data-lucide="pen-tool" class="h-5 w-5 text-primary"></i>
+                  </div>
+                  <h3 class="text-xl font-bold">Planning & Design</h3>
+                </div>
+                <p class="text-muted-foreground text-sm">
+                  Our team develops detailed plans and designs that align with your goals and comply with all regulations.
+                </p>
+              </div>
+            </div>
+            <div class="md:w-0 flex justify-center z-10 hidden md:flex">
+              <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">2</div>
+            </div>
+            <div class="flex-1 md:w-1/2 hidden md:block"></div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0 md:flex-row mt-6">
+            <div class="flex-1 md:w-1/2 md:px-8">
+              <div class="bg-card rounded-lg p-6 shadow-md border md:mr-8">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <i data-lucide="briefcase" class="h-5 w-5 text-primary"></i>
+                  </div>
+                  <h3 class="text-xl font-bold">Proposal & Contract</h3>
+                </div>
+                <p class="text-muted-foreground text-sm">
+                  We provide a comprehensive proposal outlining scope, timeline, and costs, followed by a clear contract.
+                </p>
+              </div>
+            </div>
+            <div class="md:w-0 flex justify-center z-10 hidden md:flex">
+              <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">3</div>
+            </div>
+            <div class="flex-1 md:w-1/2 hidden md:block"></div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0 md:flex-row-reverse mt-6">
+            <div class="flex-1 md:w-1/2 md:px-8">
+              <div class="bg-card rounded-lg p-6 shadow-md border md:ml-8">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <i data-lucide="clipboard-list" class="h-5 w-5 text-primary"></i>
+                  </div>
+                  <h3 class="text-xl font-bold">Pre-Construction</h3>
+                </div>
+                <p class="text-muted-foreground text-sm">
+                  Before breaking ground, we handle permits, finalize designs, and prepare the site for construction.
+                </p>
+              </div>
+            </div>
+            <div class="md:w-0 flex justify-center z-10 hidden md:flex">
+              <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">4</div>
+            </div>
+            <div class="flex-1 md:w-1/2 hidden md:block"></div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0 md:flex-row mt-6">
+            <div class="flex-1 md:w-1/2 md:px-8">
+              <div class="bg-card rounded-lg p-6 shadow-md border md:mr-8">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <i data-lucide="hard-hat" class="h-5 w-5 text-primary"></i>
+                  </div>
+                  <h3 class="text-xl font-bold">Construction</h3>
+                </div>
+                <p class="text-muted-foreground text-sm">
+                  Our skilled team executes the project with precision, keeping you informed throughout the process.
+                </p>
+              </div>
+            </div>
+            <div class="md:w-0 flex justify-center z-10 hidden md:flex">
+              <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">5</div>
+            </div>
+            <div class="flex-1 md:w-1/2 hidden md:block"></div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0 md:flex-row-reverse mt-6">
+            <div class="flex-1 md:w-1/2 md:px-8">
+              <div class="bg-card rounded-lg p-6 shadow-md border md:ml-8">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <i data-lucide="check-circle" class="h-5 w-5 text-primary"></i>
+                  </div>
+                  <h3 class="text-xl font-bold">Project Completion</h3>
+                </div>
+                <p class="text-muted-foreground text-sm">
+                  We conduct thorough inspections and walkthroughs to ensure everything meets our high standards.
+                </p>
+              </div>
+            </div>
+            <div class="md:w-0 flex justify-center z-10 hidden md:flex">
+              <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">6</div>
+            </div>
+            <div class="flex-1 md:w-1/2 hidden md:block"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SERVICES CTA -->
+  <section class="py-16 md:py-24 bg-primary text-primary-foreground">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Start Your Construction Project?
+            </h2>
+            <p class="text-xl opacity-90 mb-6">
+              Contact us today to discuss your project requirements and get a detailed quote.
+            </p>
+            <a 
+              href="/contact" 
+              class="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 px-8 py-2 group">
+              Get in Touch
+              <i data-lucide="arrow-right" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+            </a>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 md:p-8">
+            <h3 class="text-xl font-bold mb-4">
+              Why Choose Vertex Construction Group?
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-2">
+                <div class="w-5 h-5 rounded-full bg-white flex items-center justify-center mt-0.5 shrink-0">
+                  <div class="w-2 h-2 rounded-full bg-primary"></div>
+                </div>
+                <span>25+ years of industry experience</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <div class="w-5 h-5 rounded-full bg-white flex items-center justify-center mt-0.5 shrink-0">
+                  <div class="w-2 h-2 rounded-full bg-primary"></div>
+                </div>
+                <span>Skilled team of construction professionals</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <div class="w-5 h-5 rounded-full bg-white flex items-center justify-center mt-0.5 shrink-0">
+                  <div class="w-2 h-2 rounded-full bg-primary"></div>
+                </div>
+                <span>Commitment to quality and client satisfaction</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <div class="w-5 h-5 rounded-full bg-white flex items-center justify-center mt-0.5 shrink-0">
+                  <div class="w-2 h-2 rounded-full bg-primary"></div>
+                </div>
+                <span>Transparent pricing and detailed quotes</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <div class="w-5 h-5 rounded-full bg-white flex items-center justify-center mt-0.5 shrink-0">
+                  <div class="w-2 h-2 rounded-full bg-primary"></div>
+                </div>
+                <span>On-time and on-budget project delivery</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%- include('partials/footer') %>

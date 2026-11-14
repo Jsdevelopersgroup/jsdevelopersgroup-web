@@ -1,0 +1,104 @@
+<%- include('partials/head', { title }) %>
+
+<div class="flex min-h-screen items-center justify-center bg-background px-4">
+  <div class="w-full max-w-md rounded-lg border bg-card p-6 shadow-lg">
+    <div class="flex flex-col items-center gap-2">
+      <div class="flex size-11 shrink-0 items-center justify-center rounded-full border border-border p-1" aria-hidden="true">
+        <img src="/logo.png" width="40" height="40" alt="Vertex" class="object-contain">
+      </div>
+
+      <div class="space-y-1 text-center">
+        <h1 class="text-lg font-semibold">Welcome back</h1>
+        <p class="text-sm text-muted-foreground">
+          Enter your credentials to login to your account.
+        </p>
+      </div>
+    </div>
+
+    <!-- Auth Form -->
+    <form id="login-form" method="POST" action="/login" class="mt-6 space-y-5">
+      <div class="space-y-4">
+        <!-- Email -->
+        <div class="space-y-2">
+          <label for="email" class="text-sm font-medium">Email</label>
+          <input 
+            id="email" 
+            name="email" 
+            type="email" 
+            required 
+            placeholder="hi@yourcompany.com"
+            class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          />
+        </div>
+
+        <!-- Password -->
+        <div class="space-y-2">
+          <label for="password" class="text-sm font-medium">Password</label>
+          <input 
+            id="password" 
+            name="password" 
+            type="password" 
+            required 
+            placeholder="Enter your password"
+            class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          />
+        </div>
+      </div>
+
+      <!-- Error Display -->
+      <div id="login-error" class="<%= error ? '' : 'hidden' %> text-sm text-red-500 text-center">
+        <%= error || '' %>
+      </div>
+
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        id="login-submit-btn"
+        class="w-full inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+        Sign in
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Dynamic client-side handling for immediate response
+  document.getElementById('login-form').addEventListener('submit', async function(e) {
+    const errorDiv = document.getElementById('login-error');
+    const submitBtn = document.getElementById('login-submit-btn');
+    errorDiv.classList.add('hidden');
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Signing in...';
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+      const res = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        errorDiv.textContent = data.message || 'Login failed';
+        errorDiv.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Sign in';
+      } else {
+        window.location.href = data.redirect || '/admin/projects';
+      }
+    } catch (err) {
+      errorDiv.textContent = 'Network or server error';
+      errorDiv.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitBtn.innerText = 'Sign in';
+    }
+  });
+</script>
+</body>
+</html>

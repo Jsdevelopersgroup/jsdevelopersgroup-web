@@ -1,0 +1,103 @@
+<%- include('partials/head', { title, description }) %>
+<%- include('partials/header', { activePage }) %>
+
+<div class="flex flex-col gap-20 pb-20">
+  <!-- 1. PROJECTS HERO -->
+  <section class="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://images.unsplash.com/photo-1465496779874-1d1a7dde58f3?q=80&w=2071&auto=format&fit=crop" 
+        alt="Construction projects"
+        class="w-full h-full object-cover"
+        style="filter: brightness(0.5);"
+      />
+      <div class="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center text-white">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-md">
+        Our Projects Portfolio
+      </h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto drop-shadow-md">
+        Explore our showcase of completed and ongoing construction projects across various sectors.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. FILTER & PROJECTS GRID -->
+  <div class="container mx-auto px-4">
+    <!-- Filter Bar -->
+    <div class="mb-12">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+        <h2 class="text-2xl font-bold">Browse Our Projects</h2>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        <button
+          type="button"
+          class="project-filter-btn inline-flex items-center justify-center rounded-md text-sm font-medium h-9 px-4 py-2 transition-colors bg-primary text-primary-foreground shadow-sm"
+          data-category="all">
+          All Projects
+        </button>
+
+        <% if (categories && categories.length > 0) { %>
+          <% categories.forEach(cat => { %>
+            <button
+              type="button"
+              class="project-filter-btn inline-flex items-center justify-center rounded-md text-sm font-medium h-9 px-4 py-2 transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground shadow-sm"
+              data-category="<%= cat %>">
+              <%= cat %>
+            </button>
+          <% }); %>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <% if (!projects || projects.length === 0) { %>
+      <div class="text-center py-16">
+        <p class="text-muted-foreground text-lg">No projects available at the moment.</p>
+      </div>
+    <% } else { %>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+        <% projects.forEach(project => { 
+             const year = project.project_date ? project.project_date.split('-')[0] : '';
+             const imgUrl = project.image_url || '/placeholder.svg';
+        %>
+          <div class="project-card" data-category="<%= project.category || '' %>">
+            <a href="/projects/<%= project.id %>" class="group block">
+              <div class="relative overflow-hidden rounded-lg">
+                <div class="aspect-[4/3] bg-muted">
+                  <img
+                    src="<%= imgUrl %>"
+                    alt="<%= project.title %>"
+                    class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                  <span class="inline-block px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full mb-2">
+                    <%= project.category %>
+                  </span>
+                  <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors drop-shadow-sm">
+                    <%= project.title %>
+                  </h3>
+                  <div class="flex items-center gap-2 text-sm text-white/80 mt-2 drop-shadow-sm">
+                    <span><%= project.location %></span>
+                    <% if (year) { %>
+                      <span>•</span>
+                      <span><%= year %></span>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        <% }); %>
+      </div>
+    <% } %>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
