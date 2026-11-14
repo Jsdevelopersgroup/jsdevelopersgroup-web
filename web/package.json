@@ -1,7 +1,7 @@
 {
-  "name": "company-portfolio-web",
+  "name": "jsdevelopersgroup-web",
   "version": "1.0.0",
-  "description": "Frontend Web Service (SSR EJS + Vanilla JS) for Construction Company Portfolio Template",
+  "description": "Frontend Web Service (SSR EJS + Vanilla JS) for JS Developers Group",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",

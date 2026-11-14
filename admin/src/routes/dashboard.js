@@ -17,13 +17,13 @@ router.get(['/', '/admin/projects'], async (req, res) => {
   try {
     const projects = await apiClient.getAllProjects(req.token);
     res.render('projects', {
-      title: 'Admin Projects | Vertex Construction Group',
+      title: 'Admin Projects | JS Developers Group',
       projects,
     });
   } catch (err) {
     console.error('Error fetching admin projects:', err.message);
     res.render('projects', {
-      title: 'Admin Projects | Vertex Construction Group',
+      title: 'Admin Projects | JS Developers Group',
       projects: [],
       error: 'Failed to load projects from API',
     });

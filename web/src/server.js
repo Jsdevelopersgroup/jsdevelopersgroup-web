@@ -38,7 +38,7 @@ app.use('/uploads', express.static(UPLOAD_ROOT, {
 // 404 Handler
 app.use((req, res) => {
   res.status(404).render('404', {
-    title: '404 - Page Not Found | Vertex Construction Group',
+    title: '404 - Page Not Found | JS Developers Group',
     description: 'The requested page was not found.',
     activePage: '',
   });
@@ -48,7 +48,7 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
   console.error('Web App Error:', err);
   res.status(500).render('404', {
-    title: '500 - Server Error | Vertex Construction Group',
+    title: '500 - Server Error | JS Developers Group',
     description: 'An internal error occurred.',
     activePage: '',
   });

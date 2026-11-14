@@ -1,4 +1,4 @@
-// Main JavaScript for Vertex Construction Group Portfolio Template (Vanilla JS)
+// Main JavaScript for JS Developers Group (Vanilla JS)
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -368,7 +368,7 @@ function initContactForm() {
   const successBox = document.getElementById('contact-success');
   if (!form) return;
 
-  const WHATSAPP_NUMBER = '15552345678';
+  const WHATSAPP_NUMBER = '9961660463';
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();

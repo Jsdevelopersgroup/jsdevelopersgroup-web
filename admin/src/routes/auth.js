@@ -7,7 +7,7 @@ router.get('/login', (req, res) => {
     return res.redirect('/admin/projects');
   }
   res.render('login', {
-    title: 'Admin Login | Vertex Construction Group',
+    title: 'Admin Login | JS Developers Group',
     error: null,
   });
 });
